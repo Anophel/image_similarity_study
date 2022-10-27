@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <%- include('./common/head'); %>
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('./common/header'); %>
+
+            <main class="px-3">
+                <div>
+                    <h1>New user</h1>
+                    <p>Username: <%= user.name %></p>
+                    <p>Password: <%= user.password %></p>
+                    <p>This login information will be needed, if you ever want to continue the study. Keep them somewhere safe.</p>
+                    <a href="<%= continueUrl %> " target="_blank" class="btn btn-primary">Continue</a>
+                </div>
+            </main>
+
+            <%- include('./common/footer'); %>
+
+    </div>
+
+</body>
+
+</html>

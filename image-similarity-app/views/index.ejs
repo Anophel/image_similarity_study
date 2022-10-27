@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <%- include('./common/head'); %>
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('./common/header'); %>
+
+
+
+            <main class="px-3">
+                <div>
+                    <h1>Choose the most similar image.</h1>
+                    <% if(triplet !=null){ %>
+                        <form method="POST" action="/annotation">
+                            <input type="text" id="triplet_id" name="triplet_id" value="<%= triplet.id %>" hidden />
+                            <input type="text" id="timestamp_start" name="timestamp_start" value="<%= timestamp %>" hidden />
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <img width="640" height="360" class="target-image" src="<%= triplet.target_path %>" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="option_one">
+                                            <input type="radio" id="option_one" name="option" value="1" hidden required>
+                                            <img width="640" height="360" src="<%= triplet.option_one_path %>" />
+                                        </label>
+                                    </div>
+                                    <div class="col">
+                                        <label for="option_two">
+                                            <input type="radio" id="option_two" name="option" value="2" hidden required>
+                                            <img width="640" height="360" src="<%= triplet.option_two_path %>" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-xl">Next</button>
+                        </form>
+
+                        <% } else{ %>
+                            <p>Congratulations, you have finished!</p>
+                            <% } %>
+                </div>
+            </main>
+
+            <%- include('./common/footer'); %>
+
+    </div>
+
+</body>
+
+</html>

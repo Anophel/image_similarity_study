@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <%- include('./common/head'); %>
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('./common/header'); %>
+
+
+
+            <main class="px-3">
+                <div>
+                    <% for (const annot of annotations) { %>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <span class="col d-flex justify-content-center align-items-center input-group-text">
+                                    <%= annot.id %>
+                                </span>
+                                <div class="col">
+                                    <img width="480" height="240" class="target-image" src="<%= annot.target_path %>" />
+                                </div>
+                                <div class="col">
+                                    <img width="480" height="240" src="<%= annot.option_one_path %>"
+                                        class="<%= annot.choice === 1 ? 'option-image-checked' : 'option-image' %>" />
+                                </div>
+                                <div class="col">
+                                    <img width="480" height="240" src="<%= annot.option_two_path %>"
+                                        class="<%= annot.choice === 2 ? 'option-image-checked' : 'option-image' %>" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } %>
+                </div>
+            </main>
+
+            <%- include('./common/footer'); %>
+
+    </div>
+
+</body>
+
+</html>

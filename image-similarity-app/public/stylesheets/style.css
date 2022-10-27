@@ -1,0 +1,30 @@
+input[type=radio] ~ img {
+  border: 10px solid white;
+}
+
+input[type=radio]:checked ~ img {
+  border: 10px solid green;
+}
+
+.target-image {
+  border: 4px solid white;
+}
+
+.option-image {
+  border: 10px solid white;
+}
+
+.option-image-checked {
+  border: 10px solid green;
+}
+
+body {
+  padding-top: 10px !important;
+}
+
+.btn-xl {
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  border-radius: .4rem;
+}
+

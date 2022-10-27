@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <%- include('./common/head'); %>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('./common/header'); %>
+
+            <main class="px-3 container d-flex align-items-center justify-content-center">
+                <div class="w-50">
+                    <h1>User informations</h1>
+                    <form method="POST" action="/user">
+
+                        <div class="mb-4">
+                            <label for="inputMail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="inputMail" aria-describedby="emailHelp" name="inputMail">
+                            <div id="emailHelp" class="form-text">The email will be used only for providing the study
+                                results and is not mandatory.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="ageGroup" class="form-label">Age group:</label>
+                            <select id="ageGroup" name="ageGroup" class="form-select">
+                                <option value="not_specified">Not specified</option>
+                                <option>0-15</option>
+                                <option>16-19</option>
+                                <option>20-26</option>
+                                <option>27-36</option>
+                                <option>37-50</option>
+                                <option>51-65</option>
+                                <option>65+</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="education" class="form-label">Highest achieved education:</label>
+                            <select id="education" name="education" class="form-select">
+                                <option value="not_specified">Not specified</option>
+                                <option value="no_formal">No formal education</option>
+                                <option value="primary_school">Primary school</option>
+                                <option value="high_school">High school</option>
+                                <option value="bachelor">Bachelor's degree</option>
+                                <option value="master">Master's degree</option>
+                                <option value="phd">Doctorate degree</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="mlExpert" class="form-label">Are you familiar with <a
+                                    href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>?</label>
+                            <select id="mlExpert" name="mlExpert" class="form-select">
+                                <option value="not_specified">Not specified</option>
+                                <option value="no">No</option>
+                                <option value="yes_small">Yes, but I only have a rough estimation of what it is</option>
+                                <option value="yes_medium">Yes, I have some experience in the field</option>
+                                <option value="yes_big">Yes, I use machine learning regularly</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4 container d-flex align-items-center justify-content-center">
+                            <div class="g-recaptcha" data-sitekey="6LcXc1MgAAAAAK8jSGA4GQUPl6gxvO_DYBwDO1tA"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-primary">Get login</button>
+                        </div>
+                    </form>
+                    <% if (locals.error) {%>
+                        <p><%= locals.error %></p>
+                        <% }%>
+                </div>
+            </main>
+
+            <%- include('./common/footer'); %>
+
+    </div>
+
+</body>
+
+</html>
